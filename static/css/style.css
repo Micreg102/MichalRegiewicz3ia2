@@ -1,0 +1,34 @@
+body {
+    background-color: lightblue;
+    margin: 0;
+    text-align: center;
+  }
+ 
+
+#main {
+
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.box {
+    border: cyan 1px solid;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    margin: 5px;
+
+}
+#adm{
+    background-color: yellowgreen;
+    display: flex;
+    flex-direction: row;
+    width: 210px;
+    margin: 5px;
+}
+th, td{
+    border: yellow solid 1px;
+}
+  
