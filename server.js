@@ -79,9 +79,7 @@ app.post("/register", function (req, res) {
         console.log(tab[z])
     }
 })
-// app.get("/main", function (req, res) {
-//     res.sendFile(path.join(__dirname + "/static/main.html"))
-// })
+
 app.get("/admin", function (req, res) {
     if (adm == false) {
         res.sendFile(path.join(__dirname + "/static/admin_n.html"))
@@ -104,7 +102,7 @@ app.post("/login", function (req, res) {
         res.redirect("/admin")
         console.log("good")
     } else {
-        //res.send("bylo")
+
         console.log("blad")
         res.sendFile(path.join(__dirname + "/static/login.html"))
     }
@@ -117,9 +115,9 @@ app.get("/show", function (req, res) {
         console.log(tab[0].uczen)
         let str = '<link rel="stylesheet" href="css/style.css">' +
             '<div id="adm">' +
-            '<div class="box" id="sort"><a href="http://localhost:3000/sort">sort</a></div>' +
-            '<div class="box" id="gender"><a href="http://localhost:3000/gender">gender</a></div>' +
-            '<div class="box" id="show"><a href="http://localhost:3000/show">show</a></div>' +
+            '<div class="box" id="sort"><a href="/sort">sort</a></div>' +
+            '<div class="box" id="gender"><a href="/gender">gender</a></div>' +
+            '<div class="box" id="show"><a href="/show">show</a></div>' +
             '</div>' +
             '<table style="width:100%">'
         for (let z = 0; z < i; z++) {
@@ -140,9 +138,9 @@ app.get("/gender", function (req, res) {
     } else if (adm == true) {
         let str = '<link rel="stylesheet" href="css/style.css">' +
             '<div id="adm">' +
-            '<div class="box" id="sort"><a href="http://localhost:3000/sort">sort</a></div>' +
-            '<div class="box" id="gender"><a href="http://localhost:3000/gender">gender</a></div>' +
-            '<div class="box" id="show"><a href="http://localhost:3000/show">show</a></div>' +
+            '<div class="box" id="sort"><a href="/sort">sort</a></div>' +
+            '<div class="box" id="gender"><a href="/gender">gender</a></div>' +
+            '<div class="box" id="show"><a href="/show">show</a></div>' +
             '</div>' +
             '<table style="width:100%">'
         for (let z = 0; z < i; z++) {
@@ -204,19 +202,14 @@ app.get("/sort", function (req, res) {
         }
         let str = '<link rel="stylesheet" href="css/style.css">' +
             '<div id="adm">' +
-            '<div class="box" id="sort"><a href="http://localhost:3000/sort">sort</a></div>' +
-            '<div class="box" id="gender"><a href="http://localhost:3000/gender">gender</a></div>' +
-            '<div class="box" id="show"><a href="http://localhost:3000/show">show</a></div>' +
+            '<div class="box" id="sort"><a href="/sort">sort</a></div>' +
+            '<div class="box" id="gender"><a href="/gender">gender</a></div>' +
+            '<div class="box" id="show"><a href="/show">show</a></div>' +
             '</div>' + '<form action="/sort" method="POST" onchange="this.submit()">' +
             '<input type="radio" id="ros" name="ros" value="1" ' + ch1 + ' >' + '<label for="ros">rosnaco</label>' +
             '<input type="radio" id="mal" name="mal" value="0" ' + ch2 + ' >' + '<label for="mal">malejaco</label>' +
             '</form>' +
             '<table style="width:100%">'
-        // for (var z = 0; z < i; z++) {
-        //     console.log(tab[z])
-        // }
-        //console.log(req.body.ros)
-
         for (let z = 0; z < i; z++) {
             str += '<tr>' +
                 '<th>id: ' + tab[z].id + '</th>' +
@@ -224,7 +217,7 @@ app.get("/sort", function (req, res) {
                 '<th>wiek: ' + tab[z].age + '</th>' +
                 '</tr>'
         }
-        //console.log("pklio")
+
         res.send(str)
     }
 
