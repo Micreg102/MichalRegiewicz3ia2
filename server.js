@@ -83,11 +83,11 @@ app.post("/register", function (req, res) {
 let log = false
 app.get("/admin", function (req, res) {
     if (adm == false) {
-        if (log == true) {
-            res.sendFile(path.join(__dirname + "/static/admin_nl.html"))
-        } else {
-            res.sendFile(path.join(__dirname + "/static/admin_n.html"))
-        }
+        //if (log == true) {
+        // res.sendFile(path.join(__dirname + "/static/admin_nl.html"))
+        //} else {
+        res.sendFile(path.join(__dirname + "/static/admin_n.html"))
+        //}
     } else if (adm == true) {
         res.sendFile(path.join(__dirname + "/static/admin.html"))
     }
@@ -114,13 +114,13 @@ app.post("/login", function (req, res) {
 
     console.log(k)
     if (k == 1) {
-        if (req.body.login == admin.login && req.body.password == admin.password) {
-            adm = true
-            res.redirect("/admin")
-        } else {
-            res.send("witaj, " + req.body.login + " jestes zalogowany")
-            log = true
-        }
+        //if (req.body.login == admin.login && req.body.password == admin.password) {
+        adm = true
+        res.redirect("/admin")
+        //} else {
+        //res.send("witaj, " + req.body.login + " jestes zalogowany")
+        //log = true
+        //}
 
     } else {
         res.send("nieprawidlowy login lub haslo")
