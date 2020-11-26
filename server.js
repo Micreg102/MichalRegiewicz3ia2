@@ -16,26 +16,26 @@ app.get("/", function (req, res) {
 
 })
 var tab = [
-    { id: 1, login: "AAA", password: "aaa", age: 10, uczen: "checked", plec: "m" },
+    { id: 1, login: "AAA", password: "PASS1", age: 10, uczen: "checked", plec: "m" },
     {
-        login: 'dffgsdg',
-        password: 'sdfgsd',
+        login: 'bbb',
+        password: 'PASS2',
         age: '15',
         uczen: 'checked',
         plec: 'm',
         id: 2
     },
     {
-        login: 'dsf',
-        password: 'sdfsdf',
-        age: '10',
+        login: 'ggg',
+        password: 'PASS3',
+        age: '12',
         uczen: 'checked',
         plec: 'k',
         id: 3
     },
     {
-        login: 'dsffs',
-        password: 'sdfsdf',
+        login: 'ddd',
+        password: 'PASS4',
         age: '16',
         uczen: 'checked',
         plec: 'k',
@@ -68,7 +68,7 @@ app.post("/register", function (req, res) {
     if (k == i) {
         tab[i] = req.body
         tab[i].id = i + 1
-        res.send("witaj," + req.body.login + "jestes zarejstrowany")
+        res.send("witaj, " + req.body.login + "jestes zarejstrowany")
         console.log("good")
         i++
     } else {
@@ -102,9 +102,8 @@ app.post("/login", function (req, res) {
         res.redirect("/admin")
         console.log("good")
     } else {
-
         console.log("blad")
-        res.sendFile(path.join(__dirname + "/static/login.html"))
+        res.send("nieprawidlowy login lub haslo")
     }
 })
 
