@@ -84,7 +84,7 @@ let log = false
 app.get("/admin", function (req, res) {
     if (adm == false) {
         if (log == true) {
-            res.sendFile(path.join(__dirname + "/static/admin_nL.html"))
+            res.sendFile(path.join(__dirname + "/static/admin_nl.html"))
         } else {
             res.sendFile(path.join(__dirname + "/static/admin_n.html"))
         }
