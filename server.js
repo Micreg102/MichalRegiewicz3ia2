@@ -68,10 +68,11 @@ app.post("/register", function (req, res) {
     if (k == i) {
         tab[i] = req.body
         tab[i].id = i + 1
-        res.send("witaj, " + req.body.login + "jestes zarejstrowany")
+        res.send("witaj, " + req.body.login + " jestes zarejstrowany")
         console.log("good")
         i++
     } else {
+        res.send("taki login juz istnieje")
         console.log("bylo")
     }
 
@@ -79,10 +80,14 @@ app.post("/register", function (req, res) {
         console.log(tab[z])
     }
 })
-
+let log = false
 app.get("/admin", function (req, res) {
     if (adm == false) {
-        res.sendFile(path.join(__dirname + "/static/admin_n.html"))
+        if (log == true) {
+            res.sendFile(path.join(__dirname + "/static/admin_nL.html"))
+        } else {
+            res.sendFile(path.join(__dirname + "/static/admin_n.html"))
+        }
     } else if (adm == true) {
         res.sendFile(path.join(__dirname + "/static/admin.html"))
     }
@@ -94,17 +99,35 @@ app.get("/login", function (req, res) {
     console.log(__dirname)
 })
 app.post("/login", function (req, res) {
-    console.log(admin.login)
+    k = 0
     console.log(req.body.login)
-
-    if (req.body.login == admin.login && req.body.password == admin.password) {
-        adm = true
-        res.redirect("/admin")
-        console.log("good")
-    } else {
-        console.log("blad")
-        res.send("nieprawidlowy login lub haslo")
+    console.log(req.body.password)
+    for (var z = 0; z < tab.length; z++) {
+        console.log(tab[z].login)
+        console.log(tab[z].password)
+        if (req.body.login == tab[z].login && req.body.password == tab[z].password) {
+            k += 1
+        } else {
+            k += 0
+        }
     }
+
+    console.log(k)
+    if (k == 1) {
+        if (req.body.login == admin.login && req.body.password == admin.password) {
+            adm = true
+            res.redirect("/admin")
+        } else {
+            res.send("witaj, " + req.body.login + " jestes zalogowany")
+            log = true
+        }
+
+    } else {
+        res.send("nieprawidlowy login lub haslo")
+        console.log("zle")
+    }
+
+
 })
 
 app.get("/show", function (req, res) {
@@ -223,6 +246,7 @@ app.get("/sort", function (req, res) {
 })
 app.get("/logout", function (req, res) {
     adm = false
+    log = false
     res.redirect("/")
 })
 

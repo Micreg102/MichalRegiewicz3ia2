@@ -19,9 +19,9 @@
     </div>
     <form action="/register" method="POST">
         <label for="login" class="for">login: </label><br>
-        <input type="text" id="login" name="login"><br>
+        <input type="text" id="login" name="login" required><br>
         <label for="password" class="for">password:</label><br>
-        <input type="password" id="password" name="password"><br>
+        <input type="password" id="password" name="password" required><br>
         <label for="age" class="for3">Age:</label>
         <select id="age" name="age">
             <option value="10">10</option>
@@ -39,7 +39,7 @@
         <label for="uczen" class="for3">uczen?</label>
         <input type="checkbox" id="uczen" name="uczen" value="checked"><br>
         <label for="plec" class="for3">plec: </label>
-        <input type="radio" id="male" name="plec" value="m">
+        <input type="radio" id="male" name="plec" value="m" checked>
         <label for="m" class="for3">M</label>
         <input type="radio" id="female" name="plec" value="k">
         <label for="k" class="for3">K</label><br>
