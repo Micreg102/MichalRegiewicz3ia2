@@ -142,7 +142,7 @@ app.get("/gender", function (req, res) {
             '<div class="box" id="show"><a href="/show">show</a></div>' +
             '</div>' +
             '<table style="width:100%">'
-        for (let z = 0; z < i; z++) {
+        for (let z = 0; z < tab.length; z++) {
             console.log(tab[z].plec)
             if (tab[z].plec == "k") {
                 str += '<tr>' +
@@ -152,7 +152,7 @@ app.get("/gender", function (req, res) {
             }
         }
         str += '<table style="width:100%">'
-        for (let z = 0; z < i; z++) {
+        for (let z = 0; z < tab.length; z++) {
             console.log(tab[z].plec)
             if (tab[z].plec == "m") {
                 str += '<tr>' +
